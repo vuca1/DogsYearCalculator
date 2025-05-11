@@ -5,7 +5,7 @@ def main():
     # create main window
     window = tk.Tk()
     window.title("Dog Year Calculator 🐕")
-    window.geometry("300x200")
+    window.geometry("300x150")
     window.resizable(False, False)
 
     # add entry and label from user for age
@@ -36,12 +36,16 @@ def main():
         except ValueError as e:
             output_label.config(text="Wrong input!")
 
-    # buttons to trigger calculation dog age <-> human age
-    human_to_dog = tk.Button(window, text="Human to Dog", command= calculate_to_dog)
-    human_to_dog.pack(pady=5)
+    # buttons frame
+    button_frame = tk.Frame(window)
+    button_frame.pack(pady=5)
 
-    dog_to_human = tk.Button(window, text="Dog to Human", command=calculate_to_human)
-    dog_to_human.pack(pady=5)
+    # buttons to trigger calculation dog age <-> human age
+    human_to_dog = tk.Button(button_frame, text="Human to Dog", command= calculate_to_dog)
+    human_to_dog.grid(row=0, column= 0, padx=5, pady=5)
+
+    dog_to_human = tk.Button(button_frame, text="Dog to Human", command=calculate_to_human)
+    dog_to_human.grid(row=0, column=1, padx=5, pady=5)
 
     # todo - make buttons next to each other
 
